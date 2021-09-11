@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <p>Перед скриптом...</p>
+
+    <script>
+        'use strict';
+
+        let multiplicationTable = function (size) {
+            /*let a = [];
+            for (let i = 1; i <= size; i++) {
+                let t = [];
+                for (let j = 1; j <= size; j++) {
+                    t.push(j * i);
+                }
+                a.push(t);
+                
+            }*/
+            //return a;
+
+            return new Array(size).fill(0).map(function (item, index) {
+                let t = [];
+                for (let j = 1; j <= size; j++) {
+                    t.push(j * (index + 1));
+                }
+                return t;
+            });
+        } //Эта скобочка для обоих решений
+
+        /*
+        multiplicationTable = function(size) { //Ещё решение через apply
+
+        return Array.apply(null, new Array(size)).map(function(val, i) {
+            return Array.apply(null, new Array(size)).map(function(val, j) {
+            return (i+1) * (j+1);
+            });
+        });
+        }
+        */
+
+        console.log(multiplicationTable(1));
+
+    </script>
+
+    <p>...После скрипта.</p>
+
+</body>
+
+</html>

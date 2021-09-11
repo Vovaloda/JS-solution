@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <p>Перед скриптом...</p>
+
+    <script>
+        'use strict';
+
+
+
+        let k = +("~dsa [5620] [index]sa".match(/\[.*?\]/gi).map(a => a.toString())).map(a => a.match(/\d+/)).find(function (item) {
+            if (+item % 4 == 0) {
+                return true;
+            }
+        }) || null;
+
+        alert(k);
+
+    </script>
+
+    <p>...После скрипта.</p>
+
+</body>
+
+</html>

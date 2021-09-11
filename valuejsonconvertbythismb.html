@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p>Перед скриптом...</p>
+
+  <script>
+    'use strict';
+
+    let room = {
+      number: 23,
+      //occupiedBy: meetup
+    };
+
+    let meetup = {
+      title: "Совещание",
+      occupiedBy: [{name: "Иванов"}, {name: "Петров"}],
+      place: room,
+      //self: meetup
+    };
+
+    // цикличные ссылки
+    room.occupiedBy = meetup;
+    meetup.self = meetup;
+
+    let json = JSON.stringify(meetup, function replacer(key, value) {
+        return (value == meetup && key != "") ? undefined : value ;
+    });
+
+    let json2 = JSON.stringify(room, function replacer(key, value) {
+      //alert((this == value));
+      //alert(this.number)
+        return ((value == room && key != "") || (this == value)) ? undefined : value ;
+    });
+
+    alert(json);
+    alert(json2);
+
+
+  </script>
+
+  <p>...После скрипта.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <p>Перед скриптом...</p>
+
+    <script>
+        'use strict';
+
+        var encryptThis = function (text) {
+            return text.split(' ').map(function (t) {
+                let a = t.split('');
+                return (a.length <= 2 ? "" + a[0].charCodeAt(0) + a.splice(1, a.length - 1) : "" + a[0].charCodeAt(0) + a[a.length - 1] + a.splice(2, a.length - 3).join("") + a[1]);
+            }).join(' ');
+        }
+
+
+        alert(encryptThis("ABC A BB"));
+    </script>
+
+    <p>...После скрипта.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <p>Перед скриптом...</p>
+
+    <script>
+        'use strict';
+
+        let uniqueInOrder = function (iterable) {
+            let a;
+            Array.isArray(iterable) ? a = iterable : a = iterable.split('');
+            let c = a.filter(function (item, index) {
+                if (item != a[index - 1]) {
+                    return item;
+                }
+            })
+            return c;
+        }
+
+
+        //Другое решение (почти)
+        /*
+        var uniqueInOrder=function(iterable){
+            return [...iterable].filter((a, i) => a !== iterable[i-1])
+        }
+        */
+
+        //И ещё одно через call 
+        /*
+        var uniqueInOrder = function (iterable)
+        {
+        return [].filter.call(iterable, (function (a, i) { return iterable[i - 1] !== a }));
+        }
+        */
+        console.log(uniqueInOrder([1, 2, 2, 2, 2, 3, 3]));
+    </script>
+
+    <p>...После скрипта.</p>
+
+</body>
+
+</html>

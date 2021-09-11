@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p>Перед скриптом...</p>
+
+  <script>
+    'use strict';
+
+    var extend = function(...args) {
+        let t = {};
+        for(let a of args){
+            if(typeof a === 'object'){
+                for(let c in a){
+                    if(!(c in t)){
+                        t[`${c}`] = a[c];
+                    }
+                }
+            }
+        }
+        return t;
+    }
+
+    console.log(extend({a: 1, b: 2}, {c: 3} , {d: 5}));
+
+  </script>
+
+  <p>...После скрипта.</p>
+
+</body>
+
+</html>

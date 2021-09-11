@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <p>Перед скриптом...</p>
+
+    <script>
+        'use strict';
+
+        async function GetUsers(names) {
+            let jobs = [];
+
+            for (let name of names) {
+                let job = fetch(`https://api.github.com/users/${name}`).then(
+                    succesResponse => {
+                        if (succesResponse.status != 200) {
+                            return null;
+                        }
+                        else {
+                            return succesResponse.json();
+                        }
+                    },
+                    failResponse => {
+                        return null;
+                    }
+                );
+                jobs.push(job);
+            }
+
+            let result = await Promise.all(jobs);
+
+            return result;
+        }
+
+    </script>
+
+    <p>...После скрипта.</p>
+
+</body>
+
+</html>

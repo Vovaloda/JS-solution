@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p>Перед скриптом...</p>
+
+  <script>
+    'use strict';
+
+    function diamond(n){
+        let diam = [];
+        if(n%2==0 || n<0)
+            return null;
+        let ser = Math.ceil(n/2);
+        let zvezd = 1;
+        for(let i = 1; i<=ser;i++){
+            let k = new Array(ser-i+1).join(" ") + new Array(zvezd+1).join("*") + "\n";
+            diam.push(k);
+            zvezd+=2;
+        }
+        let diamto = diam.slice(0,ser-1).reverse();
+        diam = diam.concat(diamto);
+        return diam.join("");
+    }
+
+
+    alert(diamond(5));
+
+  </script>
+
+  <p>...После скрипта.</p>
+
+</body>
+
+</html>

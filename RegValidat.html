@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <p>Перед скриптом...</p>
+
+    <script>
+        'use strict';
+
+        function validate(password) {
+            return /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*\(\).\-\=\+\_]{6,}/.test(password)
+            ///^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\w\s]).{6,}/
+            
+            //return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])[\w]{6,}$/.test(password); // Правильное решение для этого примера
+
+            /*
+            return  /^[A-Za-z0-9]{6,}$/.test(password) &&
+          /[A-Z]+/           .test(password) &&
+          /[a-z]+/           .test(password) &&
+          /[0-9]+/           .test(password) ; */ // И вот это
+        }
+
+        console.log(validate('Password123('));
+
+    </script>
+
+    <p>...После скрипта.</p>
+
+</body>
+
+</html>

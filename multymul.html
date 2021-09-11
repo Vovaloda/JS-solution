@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p>Перед скриптом...</p>
+
+  <script>
+    'use strict';
+
+    function persistence(num) {
+        let i = 1;
+        if(("" + num).length < 2){
+            return 0;
+        }
+        i += persistence((""+num).split("").reduce((a,b) => a*b,1));
+        return i;
+}
+
+alert(persistence(39));
+
+
+  </script>
+
+  <p>...После скрипта.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p>Перед скриптом...</p>
+
+  <script>
+    'use strict';
+
+    function titleCase(title, minorWords) {
+        minorWords ? minorWords = minorWords.split(" ").map(function(a){return a.toLowerCase()}) : minorWords = []; 
+        if(title.length > 0){
+            title = title.split(" ");
+            title[0]= title[0][0].toUpperCase() +  title[0].substr(1).toLowerCase();
+            for(let i=1; i<title.length;i++){
+                if(!minorWords.includes(title[i].toLowerCase())){
+                    title[i]= title[i][0].toUpperCase() + title[i].substr(1).toLowerCase();
+                }
+              else title[i]= title[i].toLowerCase();
+            }
+            return title.join(" ");
+        }
+        return title;
+}
+
+    console.log(titleCase('THE WIND IN THE WILLOWS', 'The In'));
+
+  </script>
+
+  <p>...После скрипта.</p>
+
+</body>
+
+</html>

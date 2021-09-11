@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <p>Перед скриптом...</p>
+
+    <script>
+        'use strict';
+
+        let isPP = function(n){
+            for(let i = 2; i < n; i++){
+                for(let j = 1; j <= n; j++){
+                    if(i ** j == n){
+                        return [i,j];  
+                    }   
+                    if(i ** j > n){
+                        break;
+                    }           
+                }
+            }
+            return null; 
+        }    
+
+        alert(isPP(343));
+        
+        </script>
+
+    <p>...После скрипта.</p>
+
+</body>
+
+</html>

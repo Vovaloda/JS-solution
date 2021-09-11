@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <p>Перед скриптом...</p>
+
+    <script>
+        'use strict';
+
+        function rot13(message){
+            return message.split('').map(function(x){
+                let t = x.charCodeAt(0);
+                if(!((t<=90 && t>=65) ||((t<=122 && t>=97)))){
+                    return x;
+                }
+                else if(t<=90 && t>=65){
+                    return t + 13 > 90 ? String.fromCharCode(t - 90 + 13 + 65 - 1) : String.fromCharCode(t + 13);
+                }
+                else if(t<=122 && t>=97){
+                    return t + 13 > 122 ? String.fromCharCode(t - 122 + 13 + 97 - 1) : String.fromCharCode(t + 13);
+                }
+            }).join('');
+        }
+
+        /* Крутое решение
+function rot13(message) {
+  var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var b = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
+  return message.replace(/[a-z]/gi, c => b[a.indexOf(c)])
+}
+        */
+
+        console.log(rot13("test"));
+
+    </script>
+
+    <p>...После скрипта.</p>
+
+</body>
+
+</html>

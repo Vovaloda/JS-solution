@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p>Перед скриптом...</p>
+
+  <script>
+    'use strict';
+
+    function disemvowel(str) {
+        let mas = ["e","u","i","o","a"];
+        for(let i = 0; i<str.length;i++){
+            if(mas.includes(str[i].toLowerCase())){
+            str = str.replace(str[i],'');
+            i--;
+            }
+        }
+        return str;
+    }
+
+  </script>
+
+  <p>...После скрипта.</p>
+
+</body>
+
+</html>

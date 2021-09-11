@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <p>Перед скриптом...</p>
+
+    <script>
+        'use strict';
+
+        let t = function(number) { //round
+            if(!(('' + number).match(/(?<=.)\d/))){
+                return number;
+            }
+            return +(('' + number).match(/(?<=.)\d/))[0] < 5 ? +(('' + number).match(/\d+(?=.)/))[0] : +(('' + number).match(/\d+(?=.)/))[0] + 1;
+        };
+
+        let c = function(number) { //ceil
+            if(!(('' + number).match(/(?<=.)\d/))){
+                return number;
+            }
+            return +(('' + number).match(/(?<=.)\d+/))[0] > 0 ? +(('' + number).match(/\d+(?=.)/))[0] + 1  : +(('' + number).match(/\d+(?=.)/))[0];
+        };
+
+        let k = function(number) { //floor
+            if(!(('' + number).match(/(?<=.)\d/))){
+                return number;
+            }
+            return +(('' + number).match(/\d+(?=.)/))[0];
+        };
+
+        alert(k(0.5));
+        alert(k(0.4));
+        alert(k(0.00001));
+        alert(k(5.0));
+
+    </script>
+
+    <p>...После скрипта.</p>
+
+</body>
+
+</html>

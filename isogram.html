@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p>Перед скриптом...</p>
+
+  <script>
+    'use strict';
+    function isIsogram(str){
+        str = str.toLowerCase().split("").sort().join("");
+        for(let i = 0; i< str.length - 1; i++){
+            if(str[i] == str[i+1]){
+                return false;
+            }
+        }
+        return true;
+    }   
+
+    alert(isIsogram(""));
+
+
+  </script>
+
+  <p>...После скрипта.</p>
+
+</body>
+
+</html>

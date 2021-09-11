@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <p>Перед скриптом...</p>
+
+    <script>
+        'use strict';
+
+        function isPangram(string) {
+            for (let i = 97; i < 123; i++) {
+                let t = String.fromCharCode(i);
+                if (!new RegExp(`${t}`, "i").test(string)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        alert(isPangram("This is not a pangram."));
+
+    </script>
+
+    <p>...После скрипта.</p>
+
+</body>
+
+</html>

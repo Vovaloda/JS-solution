@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <p>Перед скриптом...</p>
+
+    <script>
+        'use strict';
+
+        function incrementString(strng) {
+            let a = '' + strng.match(/\d*$/);
+            let t = '' + (+a + 1);
+            while (a.length > t.length) {
+                t = '0' + t;
+            }
+            return strng.slice(0, strng.length - a.length) + t;
+        }
+
+        alert(incrementString(''));
+        alert(incrementString("foo134"));
+        alert(incrementString("foo4"));
+        alert(incrementString("foo"));
+        alert(incrementString("foo0034"));
+        alert(incrementString("foo000"));
+        alert(incrementString("foo0099"));
+    </script>
+
+    <p>...После скрипта.</p>
+
+</body>
+
+</html>

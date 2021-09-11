@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p>Перед скриптом...</p>
+
+  <script>
+    'use strict';
+
+    function nbYear(a, percent, aug, p) {
+        let years = 0;
+        while(a < p){
+            a = Math.floor(a + a*percent*0.01 + aug);
+            years++;
+            alert(a);
+        }
+        return years;
+    }
+
+    alert(nbYear(1000, 2, 100, 5000));
+
+  </script>
+
+  <p>...После скрипта.</p>
+
+</body>
+
+</html>

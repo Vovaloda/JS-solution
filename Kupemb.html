@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p>Перед скриптом...</p>
+
+  <script>
+    'use strict';
+
+    function formatDate(date){
+
+      let k = new Date() - date;
+
+      if(k < 1000) return "прямо сейчас";
+      else if(k < 60000) return (Math.round(k / 1000) + " сек. назад");
+      else if(k < 3600000) return (Math.round(k / 1000 / 60) + " мин. назад");
+      else 
+        return [
+          "0" + date.getDate() + ".",
+          "0" + (date.getMonth() + 1) + ".",
+          "" + date.getFullYear() + " ",
+          "0" + date.getHours() + ":",
+          ("0" + date.getMinutes()).slice(-2)
+        ].map(el => el.slice(-3)).join("");
+    }
+
+    alert( formatDate(new Date(new Date - 1)) ); // "прямо сейчас"
+
+    alert( formatDate(new Date(new Date - 30 * 1000)) ); // "30 сек. назад"
+
+    alert( formatDate(new Date(new Date - 5 * 60 * 1000)) ); // "5 мин. назад"
+
+        // вчерашняя дата вроде 31.12.2016, 20:00
+    alert( formatDate(new Date(new Date - 86400 * 1000)) );
+
+  </script>
+
+  <p>...После скрипта.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <p>Перед скриптом...</p>
+
+    <script>
+        'use strict';
+
+        function cache(func) {
+            let cashe = {};
+            
+            return function(...args){
+                let k = JSON.stringify(args);
+                if(!(k in cashe)){
+                cashe[k] = func.apply(this, args);
+                }
+                return cashe[k];
+            };
+        }
+
+    </script>
+
+    <p>...После скрипта.</p>
+
+</body>
+
+</html>

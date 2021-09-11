@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p>Перед скриптом...</p>
+
+  <script>
+    'use strict';
+
+    //alert("Kva lo m".replace("Kva", "Lo"));
+
+    function kebabize(str) {
+        for(let i = 0; i<str.length; i++){
+            if((str[i].charCodeAt() < 97 || str[i].charCodeAt() > 122) && !(str[i].charCodeAt()>=65 && str[i].charCodeAt() <=90)){
+                str = str.slice(0,i) + str.slice(i+1);
+                i--;
+                continue;
+            }
+            if(str[i].toUpperCase() == str[i] && i!=0){
+                str = str.replace(str[i],"-" + str[i].toLowerCase());
+            }
+        }
+        return str.toLowerCase();
+    }
+
+    alert(kebabize('-M0yCamelHas3Humps'));
+
+  </script>
+
+  <p>...После скрипта.</p>
+
+</body>
+
+</html>

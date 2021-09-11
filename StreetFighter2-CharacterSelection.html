@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p>Перед скриптом...</p>
+
+  <script>
+    'use strict';
+
+    function streetFighterSelection(fighters, position, moves){
+        let t = [];
+        for(let i of moves){
+            switch(i){
+                case "up": 
+                if(position[0] == 1){
+                    position[0]--;
+                }
+                t.push(fighters[position[0]][position[1]]);
+                break;
+                case "left": 
+                position[1] == 0 ? position[1] = 5 : position[1]--;
+                t.push(fighters[position[0]][position[1]]);
+                break;
+                case "right": 
+                position[1] == 5 ? position[1] = 0 : position[1]++;
+                t.push(fighters[position[0]][position[1]]);
+                break;
+                case "down": 
+                if(position[0] == 0){
+                    position[0]++;
+                }
+                t.push(fighters[position[0]][position[1]])
+                break;
+            }
+        }
+        return t;
+    }
+
+    let fighters = [
+	["Ryu", "E.Honda", "Blanka", "Guile", "Balrog", "Vega"],
+	["Ken", "Chun Li", "Zangief", "Dhalsim", "Sagat", "M.Bison"]
+    ];
+
+    let moves = ['up', 'left', 'right', 'left', 'left'];
+
+    alert(streetFighterSelection(fighters, [0,0], moves));
+
+  </script>
+
+  <p>...После скрипта.</p>
+
+</body>
+
+</html>

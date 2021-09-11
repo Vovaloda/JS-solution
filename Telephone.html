@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <p>Перед скриптом...</p>
+
+    <script>
+        'use strict';
+
+        function presses(phrase) {
+
+            let sum = 0;
+            phrase = phrase.toLowerCase().split("");
+            let a4 = ['2', '3', '3', '4', '5', '6', 's', '8', 'z']
+            let a5 = ['7', '9'];
+            let a1 = ['1', ' ', '*', "#", "a", "d", "g", "j", "m", "p", "t", "w"];
+            let a2 = ['b', 'e', 'h', "k", "n", "q", "u", "x"];
+
+            for (let i = 0; i < phrase.length; i++) {
+                if (a4.includes(phrase[i])) {
+                    sum += 4;
+                }
+                else if (a5.includes(phrase[i])) {
+                    sum += 5;
+                }
+                else if (a1.includes(phrase[i]))
+                    sum += 1;
+                else if (a2.includes(phrase[i])) {
+                    sum += 2;
+                }
+                else {
+                    sum += 3;
+                }
+
+            }
+            return sum;
+        }
+
+        alert(presses("L ol"));
+
+    </script>
+
+    <p>...После скрипта.</p>
+
+</body>
+
+</html>
